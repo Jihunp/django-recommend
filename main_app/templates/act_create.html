@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Add an Activity</h1>
+
+    <form method="post">
+        <!-- security token -->
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

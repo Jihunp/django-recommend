@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Reviews</h1>
+
+<div>
+    <div>
+        <span>{{ review.name }}</span>
+        <p>Activity Level {{ review.active }}</p>
+        <p>Weather: {{ review.weather }}</p>
+        <p>Description: {{ review.description }}</p>
+        <p>Owned By:</p>
+        {% for act in review.act_set.all %}
+            <p>{act.name}</p>
+        {% empty %}
+            <p>Nobody has this review</p>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'reviews_update' review.id %}">Edit</a>
+        <a href="{% url 'reviews_delete' review.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

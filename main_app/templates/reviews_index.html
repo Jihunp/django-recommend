@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Review List</h1>
+
+{% for review in reviews %}
+    <div>
+        <a href="{% url 'reviews_show' review.id %}">
+            <div class="card-content">
+                <span>{{ review.name}}</span>
+                <p>Activity Level {{ review.active }}</p>
+                <p>Weather: {{ review.weather }}</p>
+                <p>Description: {{review.description }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

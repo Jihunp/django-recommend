@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+    <script src="{% static 'scripts/app.js' %}" defer></script>
+    <title>Wholesome App</title>
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' user.username %}">{{ user.username }}</a>
+        <span> | </span>
+        <a href="{% url 'logout' %}">Logout</a>
+        <span> | </span>
+        {% else %}
+        <span> | </span>
+        <a href="{% url 'login' %}">Login</a>
+        <span> | </span>
+        <a href="{% url 'signup' %}" >Sign Up</a>
+        {% endif %}
+        <span> | </span>
+        <a href="/admin" >Admin</a>
+        <span> | </span>
+        <a href="/" >Home</a>
+        <span> | </span>
+        <a href="/about" >About</a>
+        <span> | </span>
+        <a href="{% url 'act_list' %}" >Activities</a>
+        <span> | </span>
+        <a href="{% url 'reviews_index' %}" >Reviews</a>
+        <span> | </span>
+        <a href="{% url 'act_create' %}" >Create Activities</a>
+        <span> | </span>
+        <a href="{% url 'reviews_create' %}" >Create Review</a>
+        <span> | </span>
+    </nav>
+{% block content %}
+    <h1>Home App</h1>
+{% endblock %}
+</body>
+</html>

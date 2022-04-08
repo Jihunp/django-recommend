@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>{{ username }}'s Recommendations</h1>
+
+    {% for act in acts %}
+    <a href="/activities/{{ act.id }}">
+        <h3>{{ act.name }}</h3>
+    </a>
+    {% endfor %}
+{% endblock %}

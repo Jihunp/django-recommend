@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav>
+    <a href="{% url 'act_list' %}"> Home</a>
+</nav>
+    <div>
+        <img src="{{act.images}}" alt="{{act.name}}" />
+    </div>
+    <h1>{{act.name}}</h1>
+    <div>
+        <h3>Food or Activity: {{act.label}}</h3>
+        <h3>Price: {{act.price}}</h3>
+        <h3>Rating: {{act.rating}}</h3>
+        <h3>location: {{act.location}}</h3>
+    </div>
+    {% for review in act.reviews.all %}
+        <div>{{review.name}}</div>
+    {% empty %}
+        <div> Activity has no reviews </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'act_update' act.pk %}">Update</a>
+        <a href="{% url 'act_delete' act.pk %}">Delete</a>
+    </div>
+
+{% endblock %}

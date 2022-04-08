@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Recommendations List
+{% endblock %}
+
+{% block content %}
+    <form>
+        <div>
+            <input type="text" name="name" placeholder="name"/>
+            <input type="submit" value="Search" />
+        </div>
+        <a href="{% url 'act_list' %}">Clear Search</a>
+        <a href="{% url 'act_create' %}">Add Activity</a>
+    </form>
+
+    <h1>{{header}}</h1>
+        {% for act in acts %}
+        <img src="{{act.images}}" alt="{{ act.name }}">
+            <a href="{% url 'act_detail' act.pk %}">
+                <h3>Name: {{act.name}}</h3>
+            </a>
+            <h3>Food or Activity: {{act.label}}</h3>
+            <h3>Price: {{act.price}}</h3>
+            <h3>Rating: {{act.rating}}</h3>
+            <h3>Location: {{act.location}}</h3>
+            <p>Recommended by:
+                <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
+            </p>
+    {% endfor %}
+{% endblock %}
