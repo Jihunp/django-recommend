@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from django.urls import reverse
 from dataclasses import fields
 from pipes import Template
@@ -166,7 +167,7 @@ def login_view(request):
             else:
                 return render(request, 'login.html', {'form': form})
         else:
-            return render(request, 'register.html', {'form', form})
+            return render(request,'register.html', {'form': form}) 
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
