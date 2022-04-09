@@ -17,5 +17,6 @@ urlpatterns = [
     path('reviews/<int:pk>/delete/', views.ReviewDelete.as_view(), name="reviews_delete"),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('signup/', views.signup_view, name='signup'),
+    # path('signup/', views.signup_view, name='signup'),
+    path('register/', views.register, name='register')
 ]

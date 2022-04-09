@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from django.urls import reverse
 from dataclasses import fields
 from pipes import Template
@@ -10,11 +11,13 @@ from .models import Act, Review
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 # auth imports
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from .forms import CustomUserCreationForm
 
 
 
@@ -115,20 +118,34 @@ class ReviewDelete(DeleteView):
     template_name = 'review_confirm_delete.html'
     success_url = '/reviews'
 
-#django auth
-def signup_view(request):
+# django auth
+# def signup_view(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             print('Hello', user.username)
+#             messages.success(request, 'Account Created Successfully')
+#             return HttpResponseRedirect('/user/'+str(user))
+#         else:
+#             return render(request, 'signup.html', {'form': form})
+#     else:
+#         form = UserCreationForm()
+#         return render(request, 'signup.html', {'form': form})
+
+def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save_login()
             login(request, user)
-            print('Hello', user.username)
+            messages.success(request, 'Account Created')
             return HttpResponseRedirect('/user/'+str(user))
-        else:
-            return render(request, 'signup.html', {'form': form})
     else:
-        form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
+        form = CustomUserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
 
 def logout_view(request):
     logout(request)
@@ -150,7 +167,7 @@ def login_view(request):
             else:
                 return render(request, 'login.html', {'form': form})
         else:
-            return render(request, 'signup.html', {'form', form})
+            return render(request,'register.html', {'form': form}) 
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
