@@ -10,6 +10,7 @@ from .models import Act, Review
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 # auth imports
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -123,12 +124,25 @@ def signup_view(request):
             user = form.save()
             login(request, user)
             print('Hello', user.username)
+            messages.success(request, 'Account Created Successfully')
             return HttpResponseRedirect('/user/'+str(user))
         else:
             return render(request, 'signup.html', {'form': form})
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
+
+# def register(request):
+#     if request.method == 'POST':
+#         f = UserCreationForm(request.POST)
+#         if f.is_valid():
+#             f.save()
+#             messages.success(request, 'Account Created')
+#             return HttpResponseRedirect('/user/')
+#     else:
+#         f = UserCreationForm()
+#     return render(request, 'signup.html', {'form': f})
+
 
 def logout_view(request):
     logout(request)
