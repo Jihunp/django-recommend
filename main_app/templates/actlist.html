@@ -5,6 +5,7 @@ Recommendations List
 {% endblock %}
 
 {% block content %}
+<div class="Search-bar">
     <form>
         <div>
             <input type="text" name="name" placeholder="name"/>
@@ -13,19 +14,28 @@ Recommendations List
         <a href="{% url 'act_list' %}">Clear Search</a>
         <a href="{% url 'act_create' %}">Add Activity</a>
     </form>
+</div>
 
     <h1>{{header}}</h1>
-        {% for act in acts %}
-        <img src="{{act.images}}" alt="{{ act.name }}">
-            <a href="{% url 'act_detail' act.pk %}">
-                <h3>Name: {{act.name}}</h3>
-            </a>
-            <h3>Food or Activity: {{act.label}}</h3>
-            <h3>Price: {{act.price}}</h3>
-            <h3>Rating: {{act.rating}}</h3>
-            <h3>Location: {{act.location}}</h3>
-            <p>Recommended by:
-                <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
-            </p>
+    {% for act in acts %}
+    <div class="row">
+        <div class="column">
+            <div class="img-container">
+                <img class="img" src="{{act.images}}" alt="{{ act.name }}">
+            </div>
+            <div class="act-text">
+                <a href="{% url 'act_detail' act.pk %}">
+                    <h3>Name: {{act.name}}</h3>
+                </a>
+                <h3>Food or Activity: {{act.label}}</h3>
+                <h3>Price: {{act.price}}</h3>
+                <h3>Rating: {{act.rating}}</h3>
+                <h3>Location: {{act.location}}</h3>
+                <p>Recommended by:
+                    <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
     {% endfor %}
 {% endblock %}
