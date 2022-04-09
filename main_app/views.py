@@ -16,6 +16,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from .forms import CustomUserCreationForm
 
 
 
@@ -116,32 +117,33 @@ class ReviewDelete(DeleteView):
     template_name = 'review_confirm_delete.html'
     success_url = '/reviews'
 
-#django auth
-def signup_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            print('Hello', user.username)
-            messages.success(request, 'Account Created Successfully')
-            return HttpResponseRedirect('/user/'+str(user))
-        else:
-            return render(request, 'signup.html', {'form': form})
-    else:
-        form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
-
-# def register(request):
+# django auth
+# def signup_view(request):
 #     if request.method == 'POST':
-#         f = UserCreationForm(request.POST)
-#         if f.is_valid():
-#             f.save()
-#             messages.success(request, 'Account Created')
-#             return HttpResponseRedirect('/user/')
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             print('Hello', user.username)
+#             messages.success(request, 'Account Created Successfully')
+#             return HttpResponseRedirect('/user/'+str(user))
+#         else:
+#             return render(request, 'signup.html', {'form': form})
 #     else:
-#         f = UserCreationForm()
-#     return render(request, 'signup.html', {'form': f})
+#         form = UserCreationForm()
+#         return render(request, 'signup.html', {'form': form})
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save_login()
+            login(request, user)
+            messages.success(request, 'Account Created')
+            return HttpResponseRedirect('/user/'+str(user))
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'register.html', {'form': form})
 
 
 def logout_view(request):
@@ -164,7 +166,7 @@ def login_view(request):
             else:
                 return render(request, 'login.html', {'form': form})
         else:
-            return render(request, 'signup.html', {'form', form})
+            return render(request, 'register.html', {'form', form})
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
