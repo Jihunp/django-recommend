@@ -18,65 +18,64 @@ Recommendations List
 
     <h1>{{header}}</h1>
     {% for act in acts %}
+    <!-- modal -->
     <div class="row">
         <div class="column">
-            <div class="img-container">
-                <img class="img" src="{{act.images}}" alt="{{ act.name }}">
-            </div>
-            <div class="act-text">
-                <a href="{% url 'act_detail' act.pk %}">
-                    <h3>Name: {{act.name}}</h3>
-                </a>
-                <h3>Food or Activity: {{act.label}}</h3>
-                <h3>Price: {{act.price}}</h3>
-                <h3>Rating: {{act.rating}}</h3>
-                <h3>Location: {{act.location}}</h3>
-                <p>Recommended by:
-                    <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
-                </p>
+            <!-- Modal Button -->
+            <p class="btn-container">
+                <button id="open-modal" class="trigger">Open/Close</button>
+            </p>
+            <div id="my-modal" class="modal">
+                    <!-- modal content -->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <span class="close">&Chi;</span>
+                            <a class="modal-header" href="{% url 'act_detail' act.pk %}">
+                                <h3>{{ act.name }}</h3>
+                            </a>
+                        </div>
+                        <div class="img-container">
+                            <a href="{% url 'act_detail' act.pk %}">
+                                <img id="modal-img" class="img enlarge-img enlarge" src="{{act.images}}" alt="{{ act.name }}">
+                            </a>
+                        </div>
+                        <div class="act-text">
+                            <h3>Food or Activity: {{act.label}}</h3>
+                            <!-- <h3>Price: {{act.price}}</h3>
+                            <h3>Rating: {{act.rating}}</h3>
+                            <h3>Location: {{act.location}}</h3> -->
+                            <p>Recommended by:
+                                <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+   
     {% endfor %}
     <!-- modal button -->
-    <button id="open-modal" class="trigger">Open Sesame</button>
+    <!-- <button id="open-modal" class="trigger">Open Sesame</button> -->
     <!-- modal -->
-    <div id="my-modal" class="modal">
+    <!-- <div id="my-modal" class="modal"> -->
         
         <!-- modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&Chi;</span>
-                <h2>Header for Modal</h2>
-            </div>
-            <div class="modal-body">
-                <p>Some text inside of the box</p>
-                <p>Some other text ...</p>
-            </div>
-            <div class="modal-footer">
-                <h3>Footer for Modal</h3>
-            </div>
-        </div>
-    </div>
-    <button id="open-modal" class="trigger">Open Sesame2</button>
-    <!-- modal -->
-    <div id="my-modal" class="modal">
-        
-        <!-- modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&Chi;</span>
-                <h2>Header for Modal version 2</h2>
-            </div>
-            <div class="modal-body">
-                <p>Some text inside of the box</p>
-                <p>Some other text ...</p>
-            </div>
-            <div class="modal-footer">
-                <h3>Footer for Modal</h3>
-            </div>
-        </div>
-    </div>
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <span class="close">&Chi;</span> -->
+                <!-- <h2>Header for Modal</h2> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <p>Some text inside of the box</p> -->
+                <!-- <p>Some other text ...</p> -->
+            <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <h3>Footer for Modal</h3> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
 {% endblock %}
 
 
