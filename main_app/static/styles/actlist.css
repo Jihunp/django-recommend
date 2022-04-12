@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 .img {
-    border-radius: 20%;
     content: center;
     width: 150px;
     height: 150px;
@@ -13,7 +12,6 @@
 }
 .enlarge-img {
     justify-content: center;
-    border-radius: 20%;
     font-size: 12px;
     text-decoration: none;
     margin-left: auto;
@@ -65,6 +63,7 @@
     display: block;
     overflow: hidden;
 }
+
 /* Modal box */
 .my-modal {
     display: none;
@@ -88,10 +87,8 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.15);
     animation-name: animatetop;
     animation-duration: 0.5s;
-    border-radius: 10%;
-
 }
-.modal-header {
+.modal-header  {
     padding: 0;
     color: black;
     font-weight: bold;
@@ -103,9 +100,10 @@
     text-decoration: none;
     cursor: pointer;
 }
+
 /* .modal-body {padding: 5px 12px;} */
 /* insert animation here */
-@-webkit-keyframes animatetop {
+@-webkit-keyframes animatetop{
     from {top: -360px; opacity: 0;}
     to {top: 0; opacity: 1;}
 }
@@ -113,6 +111,7 @@
     from {top: -360px; opacity: 0;}
     to {top: 0; opacity: 1;}
 }
+
 .close {
     padding-right: 5px;
     color: #aaa;
@@ -126,9 +125,95 @@
     text-decoration: none;
     cursor: pointer;
 }
+
 /* responsive design with mobile users */
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
+}
+
+/* Second Modal for Reviews */
+.btn-container {
+    position: relative;
+    justify-content: center;
+    padding: 10px
+}
+.trigger {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#open-modal {
+    display: block;
+    overflow: hidden;
+}
+
+/* Modal box */
+.my-modal-2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgb(0,0,0,0.4);
+}
+.modal-content-2 {
+    display: block;
+    text-align: center;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.15);
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+    border-radius: 10%;
+}
+
+.modal-header-2  {
+    padding: 0;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.modal-header-2:hover,
+.modal-header-2:focus {
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body-2 {padding: 5px 12px;}
+/* insert animation here */
+@-webkit-keyframes animatetop{
+    from {top: -360px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+@keyframes animatetop {
+    from {top: -360px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+.close-2 {
+    padding-right: 5px;
+    color: #aaa;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+.close-2:hover,
+.close-2:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

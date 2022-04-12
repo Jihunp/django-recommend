@@ -21,9 +21,8 @@ Recommendations List
     <!-- modal -->
     <div class="row">
         <div class="column">
-            <!-- Modal Button -->
             <p class="btn-container">
-                <button id="open-modal" class="trigger">Open/Close</button>
+                <button id="open-modal" class="trigger">Disappear</button>
             </p>
             <div id="my-modal" class="modal">
                     <!-- modal content -->
@@ -42,9 +41,37 @@ Recommendations List
                         </div>
                         <div class="act-text">
                             <h3>Food or Activity: {{act.label}}</h3>
-                            <!-- <h3>Price: {{act.price}}</h3>
-                            <h3>Rating: {{act.rating}}</h3>
-                            <h3>Location: {{act.location}}</h3> -->
+                            <!-- modal number 2 -->
+                            <!-- Modal Button -->
+                            <p class="btn-container-2">
+                                <button id="open-modal-2" class="trigger-2">Open/Close</button>
+                            </p>
+                                <!-- modal button -->
+                            <!-- modal -->
+                            <div id="my-modal-2" class="modal-2">
+                                <!-- modal content -->
+                                <div class="modal-content-2">
+                                    <div class="modal-header-2">
+                                        <span class="close-2">&Chi;</span>
+                                </div>
+                                <div class="modal-body-2">
+                                    {% for review in act.review.all %}
+                                    <div>
+                                        <span>{{ review.name }}</span>
+                                        <p>Activity Level {{ review.active }}</p>
+                                        <p>Weather: {{ review.weather }}</p>
+                                        <p>Description: {{ review.description }}</p>
+                                        <p>Owned By:</p>
+                                            <p>{{act.name}}</p>
+                                        {% empty %}
+                                            <p>Nobody has this review</p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="modal-footer-2">
+                                        <h3>Footer for Modal</h3>
+                                    </div>
+                                </div>
+                            </div>
                             <p>Recommended by:
                                 <a href="'/user/{{act.user.username}}">{{ act.user.username }}</a>
                             </p>

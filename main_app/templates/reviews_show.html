@@ -11,7 +11,7 @@
         <p>Description: {{ review.description }}</p>
         <p>Owned By:</p>
         {% for act in review.act_set.all %}
-            <p>{act.name}</p>
+            <p>{{act.name}}</p>
         {% empty %}
             <p>Nobody has this review</p>
         {% endfor %}

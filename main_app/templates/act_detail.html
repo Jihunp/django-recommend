@@ -14,7 +14,9 @@
         <h3>location: {{act.location}}</h3>
     </div>
     {% for review in act.reviews.all %}
-        <div>{{review.name}}</div>
+        <div>{{review.name}}
+            {{ review.description }}
+        </div>
     {% empty %}
         <div> Activity has no reviews </div>
     {% endfor %}
