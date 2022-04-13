@@ -7,7 +7,7 @@ const closeBtn = document.getElementsByClassName("close");
 for (let [i, trigger] of triggerArray) {
     toggleModals = function() {
         // class named my-modal
-        modals[i].classList.toggle("modal");
+        modals[i].classList.toggle("my-modal");
     };
     trigger.addEventListener("click", toggleModals);
     closeBtn[i].addEventListener("click", toggleModals);
@@ -32,7 +32,7 @@ const btnClose = document.getElementsByClassName("close-2");
 for (let [index, trigun] of arrayTrigger) {
     togglemods = function() {
         // class named my-modal-2
-        mods[index].classList.toggle("modal-2");
+        mods[index].classList.toggle("my-modal-2");
     };
     trigun.addEventListener("click", togglemods);
     btnClose[index].addEventListener("click", togglemods);

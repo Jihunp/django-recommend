@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Review List</h1>
+<h1 id="review-title">Review List</h1>
 
 {% for review in reviews %}
-    <div>
-        <a href="{% url 'reviews_show' review.id %}">
+    <div class="list">
+        <a class="hover decor" href="{% url 'reviews_show' review.id %}">
             <div class="card-content">
                 <span>{{ review.name}}</span>
                 <p>Activity Level {{ review.active }}</p>
