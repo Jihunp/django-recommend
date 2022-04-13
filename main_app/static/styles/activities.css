@@ -13,7 +13,9 @@
     border: none;
     background-color: #68B5E4;
     border-radius:10%;
-
+}
+#color-cord {
+    background-color: #017697;
 }
 .text {
     margin: 40px;
@@ -22,10 +24,10 @@
     color: black;
     font-weight: bold;
 }
+/* review list */
 #review-title {
     text-align: center;
 }
-
 
 .list {
     padding: 15px;
@@ -48,4 +50,9 @@
 }
 .decor {
     text-decoration: none;
+}
+/* review detail */
+
+.review-container {
+    
 }
