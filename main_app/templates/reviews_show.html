@@ -9,7 +9,7 @@
         <p>Activity Level {{ review.active }}</p>
         <p>Weather: {{ review.weather }}</p>
         <p>Description: {{ review.description }}</p>
-        <p>Owned By:</p>
+        <p>Review For:</p>
         {% for act in review.act_set.all %}
             <p>{{act.name}}</p>
         {% empty %}

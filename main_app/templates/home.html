@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Home</h1>
-    <h2>Landing</h2>
+<div class="login">
+    <h1>Welcome Home</h1>
     <div>
-        <p>Small tag</p>
+        <a href="{% url 'login' %}"><img src="https://images.pexels.com/photos/6532589/pexels-photo-6532589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="500" height="800"></a>
     </div>
+</div>
 {% endblock %}
