@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Add an Activity</h1>
-
-    <form method="post">
-        <!-- security token -->
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit" />
-    </form>
+    <div class="card-color">
+        <div id="color-cord" class="card">
+            <span class="text">Create Activity</span>
+            <p>
+                <form method="post">
+                    <!-- security token -->
+                    {% csrf_token %}
+                    <table>{{form.as_table}}</table>
+                    <input class="inp" type="submit" value="Submit" />
+                </form>
+            </p>
+        </div>
+      </div>
 {% endblock %}

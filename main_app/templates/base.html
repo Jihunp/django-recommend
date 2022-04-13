@@ -6,40 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/home.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/actlist.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/activities.css' %}" />
     <script src="{% static 'scripts/app.js' %}" defer></script>
     <title>Wholesome App</title>
 </head>
 <body>
-    <nav>
+    <nav class="nav-bar">
         {% if user.is_authenticated %}
-        <a href="{% url 'profile' user.username %}">{{ user.username }}</a>
-        <span> | </span>
-        <a href="{% url 'logout' %}">Logout</a>
-        <span> | </span>
+        <a class="nav-link" href="{% url 'profile' user.username %}">{{ user.username }}</a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         {% else %}
-        <span> | </span>
-        <a href="{% url 'login' %}">Login</a>
-        <span> | </span>
-        <a href="{% url 'register' %}">Register</a>
-        <span> | </span>
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
         {% endif %}
-        <span> | </span>
-        <a href="/admin" >Admin</a>
-        <span> | </span>
-        <a href="/" >Home</a>
-        <span> | </span>
-        <a href="/about" >About</a>
-        <span> | </span>
-        <a href="{% url 'act_list' %}" >Activities</a>
-        <span> | </span>
-        <a href="{% url 'reviews_index' %}" >Reviews</a>
-        <span> | </span>
-        <a href="{% url 'act_create' %}" >Create Activities</a>
-        <span> | </span>
-        <a href="{% url 'reviews_create' %}" >Create Review</a>
-        <span> | </span>
+        <a class="nav-link" href="/" >Home</a>
+        <a class="nav-link" href="{% url 'act_list' %}" >Activities</a>
+        <a class="nav-link" href="{% url 'reviews_index' %}" >Reviews</a>
+        <a class="nav-link" href="{% url 'act_create' %}" >Create Activities</a>
+        <a class="nav-link" href="{% url 'reviews_create' %}" >Create Review</a>
+        <div class="dot" ></div>
     </nav>
 {% block content %}
     <h1>Home App</h1>
