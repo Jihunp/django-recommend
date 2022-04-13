@@ -6,11 +6,10 @@ Django Dreams is the embodiment of my dreams with Django. With science and a lit
 Some ideas about what Application to make and how the process was narrowed down to some features that are crucial.
 ![image](https://user-images.githubusercontent.com/92244135/160981075-93b3d5e3-0567-4148-94ac-5362a63c4bb7.png)
 
-Here we are deciding on the colorway
 ![image](https://user-images.githubusercontent.com/92244135/160981248-771ad690-7a89-4d5a-8145-411811f89255.png)
 
 ### Entity Relationship Diagram
-![django-dreams drawio (1)](https://user-images.githubusercontent.com/92244135/161367294-5bb2a271-051c-426c-9f13-3fe7028d2c3a.png)
+<img width="800" height="600" alt="image" src="https://user-images.githubusercontent.com/92244135/163085715-07732d18-8797-4180-ae3c-fefbe42d577e.png">
 
 ### Wireframes
 ![image](https://user-images.githubusercontent.com/92244135/161366997-f8b925f3-a8c0-46a6-b82b-cdc506861a32.png)
